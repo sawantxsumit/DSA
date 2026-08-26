@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// this program is made for multi parenthesis matching problem
+struct stack
+{
+    int size;
+    int top;
+    char *arr;
+};
+
+int isEmpty(struct stack *ptr)
+{
+    if (ptr->top == -1)
+    {
+        return 1;
+    }
+    return 0;
+}
+int isFull(struct stack *ptr)
+{
+    if (ptr->top == ptr->size - 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void push(char val, struct stack *ptr)
+{
+    if (isFull(ptr) == 1)
+    {
+        printf("Stack overflow ");
+        exit(0);
+    }
+    ptr->top++;
+    ptr->arr[ptr->top] = val;
+    // printf("Element inserted\n");
+}
+
+char pop(int top, struct stack *ptr)
+{
+    if (isEmpty(ptr) == 1)
+    {
+        printf("Stack underflow ");
+        return 0;
+    }
+    char val = (ptr->arr[ptr->top]);
+    ptr->top--;
+    return val;
+}
+
+void displayStack(struct stack *ptr)
+{
+    if (isEmpty(ptr) == 1)
+    {
+        printf("stack is empty\n");
+    }
+    for (int i = 0; i <= ptr->top; i++)
+    {
+        printf("Index %d = %d \n", i, ptr->arr[i]);
+    }
+}
+
+int match(char a, char b)
+{
+    if (a == '{' && b == '}')
+    {
+        return 1;
+    }
+    if (a == '(' && b == ')')
+    {
+        return 1;
+    }
+    if (a == '[' && b == ']')
+    {
+        return 1;
+    }
+
+    return 0;
+}
+
+int parenthesisMatch(char *exp)
+{
+    // create and intialize stack
+    struct stack *sp;
+    sp->size = 100; // size can be varied and taken as an argument
+    sp->top = -1;
+    sp->arr = (char *)malloc(sp->size * sizeof(char));
+    char popped;
+    for (int i = 0; exp[i] != '\0'; i++)
+    {
+        if (exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+        {
+            push(exp[i], sp);
+        }
+        else if (exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+        {
+            if (isEmpty(sp) == 1)
+            {
+                return 0;
+            }
+
+            popped = pop(exp[i], sp);
+            if (match(exp[i], popped) == 0)
+            {
+                return 0;
+            }
+        }
+    }
+
+    if (isEmpty(sp) == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int main()
+{
+    char *exp = "{8*7(9 - 4)}";
+    if (parenthesisMatch(exp) == 1)
+    {
+        printf("the parenthesis is matching ");
+    }
+    else
+    {
+        printf("the parenthesis is  not matching ");
+    }
+
+    return 0;
+}
+
+//wrong code -- parenthesismatch function is not working 
