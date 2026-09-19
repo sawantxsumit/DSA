@@ -1,3 +1,6 @@
+'''
+Binary search 
+'''
 class A():
     def binary_search(self , list,x):
         n=len(list)
@@ -6,7 +9,7 @@ class A():
         while(low<=high):
             mid=(low+high)//2
             if(list[mid]==x):
-                return mid
+                return mid 
             elif(x>list[mid]):
                 low=mid+1
             else:

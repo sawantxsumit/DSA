@@ -1,6 +1,9 @@
 # DSA
 
-A collection of **Data Structures and Algorithms (DSA)** implementations and practice problems, primarily written in **Python and C**.
+A collection of **Data Structures and Algorithms (DSA)** implementations and practice problems, primarily written in **Python**.
+
+I have also solved basic conceptual questions in **C language** as well. 
+But Currently i solve all the problems in Python language only.
 
 This repository is being built as a hands-on DSA practice space, covering fundamental data structures, algorithms, searching, sorting, and common coding-interview problems.
 
@@ -100,23 +103,10 @@ The main goals of this repository are to:
 4. Improve problem-solving and coding skills.
 5. Maintain a record of DSA practice and progress.
 
-## 📊 Complexity
-
-Where relevant, solutions are developed with attention to:
-
-- **Time Complexity**
-- **Space Complexity**
-- Edge cases
-- Duplicate values
-- Empty inputs
-- Boundary conditions
-
-The focus is not only on getting a working solution, but also on understanding **why the solution works and how efficiently it works**.
 
 ## 🛠️ Languages & Tools
 
 - **Python 3**
-- **C**
 - **VS Code**
 - **Git & GitHub**
 
@@ -136,36 +126,7 @@ For example:
 python twosum.py
 ```
 
-### C
-
-Compile a C program using GCC:
-
-```bash
-gcc filename.c -o program
-```
-
-Then run it:
-
-**Windows:**
-```bash
-program.exe
-```
-
-**Linux/macOS:**
-```bash
-./program
-```
-
 ## 📌 Progress
 
 This repository is a work in progress. New problems, algorithms, and optimized solutions will be added as DSA practice continues.
 
-## 🤝 Contributions
-
-This is primarily a personal learning and practice repository, but suggestions and improvements are welcome.
-
-If you spot an incorrect implementation or a better approach, feel free to open an issue or submit a pull request.
-
-## 📜 License
-
-This repository is intended for educational and learning purposes.
