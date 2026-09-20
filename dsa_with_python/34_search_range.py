@@ -20,3 +20,55 @@ Example 3:
 Input: nums = [], target = 0
 Output: [-1,-1]
 '''
+class A():
+    def first_and_last(self , nums , target):
+        
+        # Find first occurence
+        
+        low=0
+        high=len(nums)-1
+        first=-1
+                
+        while low<=high:
+            mid=(low+high)//2
+            
+            if target> nums[mid]:
+                low=mid+1
+                
+            elif target< nums[mid]:
+                high=mid-1
+                
+            else:
+                first=mid
+                high=mid -1 # search left
+                
+        #find second occurence
+        low=0
+        high=len(nums)-1
+        last=-1
+        
+        while low<=high:
+            mid= (low+high)//2
+            
+            if target> nums[mid]:
+                low=mid+1
+                
+            elif target<nums[mid]:
+                high=mid-1
+                
+            else:
+                last=mid
+                low=mid+1  #search right
+                
+        return [first, last]
+    
+    
+l=A()
+nums=[5,7,7,8,8,10]
+target=8
+a=l.first_and_last(nums , target)
+print(a)
+    
+    
+        
+                
